@@ -8,12 +8,12 @@
 <h1> Listado de peliculas </h1>
 <br>
 <div class = "principal">
-@forelse ($arrayPeliculas as $pelicula)
+@forelse ($arrayPeliculas as $peliculas)
     <div class="pelicula">
-    <h6> {{$pelicula["title"]}} </h6>
-    <p> {{$pelicula["rating"]}} </p>
+    <h6> <a href="{{ url('/detallePelicula/' . $peliculas['id']) }}" class="">{{$peliculas["title"]}} </a> </h6>
+    <p> {{$peliculas["rating"]}} </p>
     </div>
-    <br>
+    <br>    
 @empty
     <p> No hay Peliculas </p>
 @endforelse

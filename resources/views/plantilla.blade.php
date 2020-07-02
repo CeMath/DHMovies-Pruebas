@@ -32,7 +32,7 @@
     <nav class="navbar-m">
         <ul class="navbar-nav-m">
         <li class="logo">
-            <a href="#" class="nav-link-m">
+            <a href="{{ url('/inicio') }}" class="nav-link-m">
             <span class="link-text logo-text">DHMovies</span>
             <svg
                 aria-hidden="true"
@@ -177,7 +177,7 @@
         </li> -->
 
         <li class="nav-item-m" id="themeButton">
-            <a href="#" class="nav-link-m">
+            <a href="https://github.com/CeMath/DHMovies-Pruebas.git" class="nav-link-m">
             <svg
                 class="theme-icon"
                 id="lightIcon"
@@ -253,7 +253,7 @@
                 ></path>
                 </g>
             </svg>
-            <span class="link-text">Themify</span>
+            <span class="link-text">GitHub</span>
             </a>
         </li>
         </ul>

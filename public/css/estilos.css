@@ -1,4 +1,4 @@
-.principal {
+.princ {
     display: row;
 }
 
@@ -8,4 +8,9 @@
 
 h6 {
     background-color: chartreuse;
+}
+
+h6 a {
+    text-decoration: none;
+    
 }

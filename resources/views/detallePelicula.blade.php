@@ -5,9 +5,5 @@
 @endsection
 
 @section("principal")
-
-    <p>Detalle pelicula uno</p>
-    <p>Detalle pelicula dos</p>
-    <p>Detalle pelicula tres</p>
-    
+    <h1> Detalle de la pelicula {{$peliculas["title"]}} </h1>    
 @endsection

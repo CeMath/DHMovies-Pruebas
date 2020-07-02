@@ -15,34 +15,57 @@ class PeliculasController extends Controller
     }
 
     public function detalle($id) {
-        $vac = compact("id");
+        $bdPeliculas = pelicula::all();
+        $vac;
+        foreach ($bdPeliculas as $peliculas) {
+            if ($peliculas["id"] == $id) {
+                $vac = compact("peliculas");
+                return view("detallePelicula", $vac);
+            }
+        }
+     
         
-        return view("detallePelicula", $vac);
     }
 
     public function peliculas() {
         $bdPeliculas = pelicula::all();
-        $aux = count($bdPeliculas); // Cantidad de peliculas
-        $i = $aux - 4;
-        $nombrePeliculas = [];
+        $cantPeliculas = count($bdPeliculas);
+        $aux;
+        $j = 0;
         $ultimasPeliculas = [];
-        $peliculasRandoms = [];
+        $randomsPeliculas = [];
 
-        foreach ($bdPeliculas as $pelicula) {
-            $nombrePeliculas[] = $pelicula["title"];
-            if ($pelicula["id"] == $i){
-                $ultimasPeliculas[] = $pelicula["title"];
-                $i++;
+        if ($cantPeliculas > 5){
+            for ($i = ($cantPeliculas - 5); $i < $cantPeliculas; $i++){
+                $ultimasPeliculas[] = $bdPeliculas[$i];
+            }
+
+        // Numeros randoms para seleccionar 5 peliculas sin repetir
+        $pos[] = rand(0, ($cantPeliculas-1));
+        while ($j < 5){
+            $aux = rand(0, ($cantPeliculas-1));
+            if (in_array($aux, $pos)){
+                continue;
+            }
+            else{
+                $pos[] = $aux;
+                $j++;
             }
         }
 
-        for ($j = 0; $j < 5; $j++){
-            $pos = rand(0, $aux);
-            $peliculasRandoms[] = $nombrePeliculas[$pos];
+        // Seleccionamos 5 peliculas aleatorias desde $bdPeliculas
+        for ($i = 0; $i < 5; $i++){
+            $randomsPeliculas[] = $bdPeliculas[$pos[$i]];
         }
 
-        $peliculasRandoms = compact("peliculasRandoms");
+        }//END-IF
+        else {
+            $randomsPeliculas = $bdPeliculas;
+            $ultimasPeliculas = $bdPeliculas;
+        }
+
+        $randomsPeliculas= compact("randomsPeliculas");
         $ultimasPeliculas = compact("ultimasPeliculas");
-        return view("inicio", $ultimasPeliculas, $peliculasRandoms);
+        return view("inicio", $ultimasPeliculas, $randomsPeliculas);
     }
 }

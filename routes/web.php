@@ -22,4 +22,4 @@ Route::get('/inicio', 'PeliculasController@peliculas');
 Route::get('/listadoPeliculas', 'PeliculasController@listado');
 
 // Pagina de detalle de cada pelicula
-Route::get('/detallePelicula/{id}', "PeliculaController@detalle");
+Route::get('/detallePelicula/{id}', "PeliculasController@detalle");
