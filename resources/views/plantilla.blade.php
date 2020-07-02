@@ -61,7 +61,7 @@
         </li>
 
         <li class="nav-item-m">
-            <a href="#" class="nav-link-m">
+            <a href="{{ url('/inicio') }}" class="nav-link-m">
             <svg
                 aria-hidden="true"
                 focusable="false"
@@ -90,7 +90,7 @@
         </li>
 
         <li class="nav-item-m">
-            <a href="#" class="nav-link-m">
+            <a href="{{ url('/listadoPeliculas') }}" class="nav-link-m">
             <svg
                 aria-hidden="true"
                 focusable="false"
@@ -114,11 +114,11 @@
                 ></path>
                 </g>
             </svg>
-            <span class="link-text">Titulos</span>
+            <span class="link-text">Listado</span>
             </a>
         </li>
 
-        <li class="nav-item-m">
+        <!-- <li class="nav-item-m">
             <a href="#" class="nav-link-m">
             <svg
                 aria-hidden="true"
@@ -145,9 +145,9 @@
             </svg>
             <span class="link-text">Space</span>
             </a>
-        </li>
+        </li> -->
 
-        <li class="nav-item-m">
+        <!-- <li class="nav-item-m">
             <a href="#" class="nav-link-m">
             <svg
                 aria-hidden="true"
@@ -174,7 +174,7 @@
             </svg>
             <span class="link-text">Shuttle</span>
             </a>
-        </li>
+        </li> -->
 
         <li class="nav-item-m" id="themeButton">
             <a href="#" class="nav-link-m">
