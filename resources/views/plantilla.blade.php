@@ -260,7 +260,7 @@
     </nav>
 
 
-    <main> @yield("principal") </main>
+    <main class = "container"> @yield("principal") </main>
 
     <footer> 
 

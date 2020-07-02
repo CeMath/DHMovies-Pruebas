@@ -17,6 +17,8 @@
 @empty
     <p> No hay Peliculas </p>
 @endforelse
+
+{{$arrayPeliculas->links()}}
 </div>
 
     
