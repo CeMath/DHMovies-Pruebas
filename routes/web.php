@@ -16,9 +16,7 @@ Route::get('/', function () {
 });
 
 // Pagina inicio donde aparecen 5 peliculas randoms y las ultimas 5 peliculas agregadas
-Route::get('/inicio', function () {
-    return view('welcome');
-});
+Route::get('/inicio', 'PeliculasController@peliculas');
 
 // Pagina de listado de peliculas
 Route::get('/listadoPeliculas', 'PeliculasController@listado');

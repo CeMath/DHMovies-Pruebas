@@ -1,0 +1,11 @@
+.principal {
+    display: row;
+}
+
+.peliculas {
+    order: 5;
+}
+
+h6 {
+    background-color: chartreuse;
+}
