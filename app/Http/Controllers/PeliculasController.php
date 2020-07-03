@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use App\Pelicula;
+
 
 class PeliculasController extends Controller
 {
@@ -67,5 +70,13 @@ class PeliculasController extends Controller
         $randomsPeliculas= compact("randomsPeliculas");
         $ultimasPeliculas = compact("ultimasPeliculas");
         return view("inicio", $ultimasPeliculas, $randomsPeliculas);
+    }
+
+    public function buscar() {
+        $titulo  = input::get('tituloPelicula') ;
+        $arrayPeliculas = pelicula::where('title', 'LIKE', "%{$titulo}%")->paginate(5);
+        $vac = compact("arrayPeliculas");
+
+        return view("/listadoPeliculas", $vac);
     }
 }

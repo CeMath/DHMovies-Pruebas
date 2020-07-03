@@ -23,3 +23,8 @@ Route::get('/listadoPeliculas', 'PeliculasController@listado');
 
 // Pagina de detalle de cada pelicula
 Route::get('/detallePelicula/{id}', "PeliculasController@detalle");
+
+// Buscador de pelicula
+Route::get('/buscador', "PeliculasController@buscar");
+
+

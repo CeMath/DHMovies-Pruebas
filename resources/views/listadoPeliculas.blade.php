@@ -5,6 +5,21 @@
 @endsection
 
 @section("principal")
+
+<form action="/buscador" method="get">
+    <div class="panel-body">
+        <label class="label-control">Ingrese el titulo de una pelicula para ver los detalles</label>
+        <input type="text" name="tituloPelicula" class="form-control" placeholder="Ingresar el titulo..." required="required">
+        <br>
+    </div>
+
+    <div class="panel-footer">
+        <button type="submit" class="btn btn-success">buscar</button>
+    </div>
+</form>
+
+<br>
+
 <h1> Listado de peliculas </h1>
 <br>
 <div class = "principal">
