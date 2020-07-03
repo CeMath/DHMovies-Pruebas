@@ -6,6 +6,9 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use App\Pelicula;
+use App\genres;
+use App\actors;
+use App\actor_movie;
 
 
 class PeliculasController extends Controller
@@ -19,15 +22,45 @@ class PeliculasController extends Controller
 
     public function detalle($id) {
         $bdPeliculas = pelicula::all();
-        $vac;
+        $bdActor_movie = actor_movie::all();
+        $bdActors = actors::all();
+        $bdGenres = genres::all();
+        $actoresId = [];
+        $actores = [];
+
+        
+     // tabla movies columna genre_id
         foreach ($bdPeliculas as $peliculas) {
             if ($peliculas["id"] == $id) {
-                $vac = compact("peliculas");
-                return view("detallePelicula", $vac);
+                
+                // Buscamos los id de los actores que trabajaron en la pelicula
+                foreach ($bdActor_movie as $actor_movie) {
+                    if ($actor_movie["movie_id"] == $peliculas["id"])
+                        $actoresId[] = $actor_movie["actor_id"];
+                }
+
+                // Buscamos esos id en la tabla de actores
+                foreach ($bdActors as $actor) {
+                    for ($i = 0; $i < count($actoresId); $i++){
+                        if ($actor["id"] == $actoresId[$i]) {
+                            $actores[] = $actor;
+                        }
+                    }
+                }
+
+                foreach ($bdGenres as $genero){
+                    if ($peliculas["genre_id"] == $genero["id"]){
+                        $generoPelicula = $genero;
+                   }
+                }
+                
+                $vacPeliculas = compact("peliculas", "generoPelicula");
+                $vacActores = compact("actores");
+                
+                
+                return view("detallePelicula", $vacPeliculas, $vacActores);
             }
         }
-     
-        
     }
 
     public function peliculas() {
