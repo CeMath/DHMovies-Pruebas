@@ -12,11 +12,15 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-  
+    <script>window.jQuery || document.write('<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js    "><\/script>')</script>
+    <script src="public/js/bootstrap.bundle.js"></script>
+    <script src="public/js/offcanvas.js"></script>
     <!-- CSS -->
     <link rel="stylesheet" href="public/css/app.css">
     <link rel="stylesheet" href="public/css/product.css"> 
     <link rel="stylesheet" href="public/css/estilos.css">  
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/offcanvas/">
+    <link href="public/css/bootstrap.css" rel="stylesheet">
 
     <!-- NavBar Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap"/>
@@ -25,6 +29,23 @@
     <!-- NavBar Script -->
     <script defer src="/js/theme.js"></script>
 
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+    
     <title> @yield("titulo") </title>
 </head>
 <body>
@@ -260,8 +281,9 @@
     </nav>
 
 
-    <main class = "container"> @yield("principal") </main>
-
+    <main class = "container color-back"> @yield("principal") </main>
+    
+      
     <footer> 
 
         <p>Footer</p>
