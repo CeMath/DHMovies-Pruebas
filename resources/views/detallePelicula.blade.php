@@ -8,17 +8,18 @@
     <h1> Detalle de la pelicula {{$peliculas["title"]}} </h1>    
     <br>
     
-    <p> Esta pelicula fue estrenada el {{ date('d-M-Y', strtotime($peliculas["release_date"])) }}, 
+    <p> {{$peliculas["title"]}} fue estrenada el {{ date('d-M-Y', strtotime($peliculas["release_date"])) }}, 
         pertenece al genero {{$generoPelicula["name"]}},
         con {{$peliculas["awards"]}} premios ganados 
-        y un rating de {{$peliculas["rating"]}}.
+        y un rating de {{$peliculas["rating"]}} puntos.
     </p>
 
     <h5> En esta pelicula actuan: </h5>
 
     <ul>
-        @foreach ($actores as $actor)
+        @forelse ($actores as $actor)
         <li> {{$actor["first_name"]}} {{$actor["last_name"]}} </li>
-        @endforeach
+        @empty No hay registro de los actores.
+        @endforelse
     </ul>
 @endsection
