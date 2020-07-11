@@ -26,43 +26,42 @@ class PeliculasController extends Controller
 
     public function detalle($id) {
         $bdPeliculas = pelicula::all();
-        $bdActor_movie = actor_movie::all();
-        $bdActors = actors::all();
-        $bdGenres = genres::all();
-        $actoresId = [];
-        $actores = [];
+        // $bdActor_movie = actor_movie::all();
+        // $bdActors = actors::all();
+        // $bdGenres = genres::all();
+        // $actoresId = [];
+        // $actores = [];
 
         
      // tabla movies columna genre_id
         foreach ($bdPeliculas as $peliculas) {
             if ($peliculas["id"] == $id) {
                 
-                // Buscamos los id de los actores que trabajaron en la pelicula
-                foreach ($bdActor_movie as $actor_movie) {
-                    if ($actor_movie["movie_id"] == $peliculas["id"])
-                        $actoresId[] = $actor_movie["actor_id"];
-                }
+                // // Buscamos los id de los actores que trabajaron en la pelicula
+                // foreach ($bdActor_movie as $actor_movie) {
+                //     if ($actor_movie["movie_id"] == $peliculas["id"])
+                //         $actoresId[] = $actor_movie["actor_id"];
+                // }
 
-                // Buscamos esos id en la tabla de actores
-                foreach ($bdActors as $actor) {
-                    for ($i = 0; $i < count($actoresId); $i++){
-                        if ($actor["id"] == $actoresId[$i]) {
-                            $actores[] = $actor;
-                        }
-                    }
-                }
+                // // Buscamos esos id en la tabla de actores
+                // foreach ($bdActors as $actor) {
+                //     for ($i = 0; $i < count($actoresId); $i++){
+                //         if ($actor["id"] == $actoresId[$i]) {
+                //             $actores[] = $actor;
+                //         }
+                //     }
+                // }
 
-                foreach ($bdGenres as $genero){
-                    if ($peliculas["genre_id"] == $genero["id"]){
-                        $generoPelicula = $genero;
-                   }
-                }
+                // foreach ($bdGenres as $genero){
+                //     if ($peliculas["genre_id"] == $genero["id"]){
+                //         $generoPelicula = $genero;
+                //    }
+                // }
                 
-                $vacPeliculas = compact("peliculas", "generoPelicula");
-                $vacActores = compact("actores");
+                $vacPeliculas = compact("peliculas");
+                // $vacActores = compact("actores");
                 
-                
-                return view("detallePelicula", $vacPeliculas, $vacActores);
+                return view("detallePelicula", $vacPeliculas);
             }
         }
     }
@@ -240,10 +239,28 @@ class PeliculasController extends Controller
 
         return redirect("/actualizarPelicula");
     }
-
+    // $peliculas->genero->name
     public function listadoAPI(){
         $bdPeliculas = pelicula::all();
+        $i = 0;
         
-        return json_encode($bdPeliculas);
+        foreach($bdPeliculas as $pelicula){
+            $aux = [];
+            $peliculasAPI[$i]["title"] = $pelicula->title;
+            $peliculasAPI[$i]["rating"] = $pelicula->rating;
+            $peliculasAPI[$i]["awards"] = $pelicula->awards;
+            $peliculasAPI[$i]["release_date"] = $pelicula->release_date;
+            $peliculasAPI[$i]["genero"] = $pelicula->genero["name"];  
+
+            // Obtenemos los nombres de todos los actores y los guardamos en un array para despues asignarlo a la posicion "actores"
+            foreach($pelicula->actores as $actores){
+                $aux[] = $actores->getNombreCompleto();   
+            }
+
+            $peliculasAPI[$i]["actores"] = $aux;  
+            $i++; 
+            
+        }
+        return json_encode($peliculasAPI);
 }
 }
