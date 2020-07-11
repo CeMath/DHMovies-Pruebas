@@ -246,3 +246,4 @@ class PeliculasController extends Controller
         
         return json_encode($bdPeliculas);
 }
+}
