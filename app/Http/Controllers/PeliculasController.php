@@ -126,7 +126,6 @@ class PeliculasController extends Controller
         return view("/listadoPeliculas", $vac);
     }
 
-<<<<<<< Updated upstream
     public function agregar(Request $dataForm) {
         $reglas = [
             "title" => "string|min:3|unique:movies,title",
@@ -240,11 +239,10 @@ class PeliculasController extends Controller
         $nuevaPelicula->save();
 
         return redirect("/actualizarPelicula");
-=======
+    }
+
     public function listadoAPI(){
         $bdPeliculas = pelicula::all();
         
         return json_encode($bdPeliculas);
->>>>>>> Stashed changes
-    }
 }
