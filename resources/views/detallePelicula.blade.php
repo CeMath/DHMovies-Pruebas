@@ -19,7 +19,9 @@
     <ul>
         @forelse ($actores as $actor)
         <li> {{$actor["first_name"]}} {{$actor["last_name"]}} </li>
-        @empty No hay registro de los actores.
+        @empty 
+        
+        <p> No hay registro de los actores. </p>
         @endforelse
     </ul>
 @endsection

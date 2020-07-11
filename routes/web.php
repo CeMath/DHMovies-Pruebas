@@ -27,4 +27,33 @@ Route::get('/detallePelicula/{id}', "PeliculasController@detalle");
 // Buscador de pelicula
 Route::get('/buscador', "PeliculasController@buscar");
 
+Route::get('/agregarPelicula', function() {
+    return view("agregarPelicula");
+});
+
+Route::post('/agregarPelicula', 'PeliculasController@agregar');
+
+Route::get('/borrarPelicula', 'PeliculasController@listadoBorrar');
+
+Route::post('/borrarPelicula', 'PeliculasController@borrar');
+
+Route::get('/buscadorBorrar', "PeliculasController@buscarBorrar");
+
+Route::get('/ABM', function() {
+    return view("ABM");
+}) -> middleware('admin');
+
+Route::get('/actualizarPelicula', 'PeliculasController@listadoActualizar');
+
+Route::post('/actualizarPelicula', 'PeliculasController@peliculaAActualizar');
+
+Route::get('/buscadorActualizar', "PeliculasController@buscarActualizar");
+
+Route::post('/Actualizar', "PeliculasController@Actualizar");
+
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
 

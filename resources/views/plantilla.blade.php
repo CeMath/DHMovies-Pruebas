@@ -198,7 +198,7 @@
         </li> -->
 
         <li class="nav-item-m" id="themeButton">
-            <a href="https://github.com/CeMath/DHMovies-Pruebas.git" class="nav-link-m">
+            <a href="/ABM" class="nav-link-m">
             <svg
                 class="theme-icon"
                 id="lightIcon"
@@ -274,14 +274,14 @@
                 ></path>
                 </g>
             </svg>
-            <span class="link-text">GitHub</span>
+            <span class="link-text">A/B/M</span>
             </a>
         </li>
         </ul>
     </nav>
 
 
-    <main class = "container color-back"> @yield("principal") </main>
+    <main class = "container"> @yield("principal") </main>
     
       
     <footer> 

@@ -13,15 +13,11 @@
   <path fill-rule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
 </svg>
 <h1 class="">DHMOVIES</h1>
-
-<!-- Buscador -->
-  <form class="form-inline my-2 my-lg-0" action="/buscador" method="get">
-    <input name="tituloPelicula" required="required" class="form-control mr-sm-2" type="text" placeholder="Ingresar titulo..." aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">buscar</button>
-  </form>
-
-</div>
-
+<form class="form-inline my-2 my-lg-0" action="/buscadorBorrar" method="get">
+      <input name="tituloPelicula" required="required" class="form-control mr-sm-2" type="text" placeholder="Ingresar titulo..." aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">buscar</button>
+    </form>
+  </div>
 
 <!-- <form action="/buscador" method="get">
     <div class="panel-body">
@@ -34,9 +30,7 @@
         <button type="submit" class="btn btn-success">buscar</button>
     </div>
 </form> -->
-
 <br>
-
 
 <div class="my-3 p-3 bg-white rounded shadow-sm">
     <h4 class="border-bottom border-gray pb-2 mb-0">Listado de peliculas</h4>
@@ -46,14 +40,21 @@
       <div class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
         <div class="d-flex justify-content-between align-items-center w-100">
           <strong class="text-gray-dark">{{$peliculas["title"]}}</strong>
-          <a href="{{ url('/detallePelicula/' . $peliculas['id']) }}" class="">Detalles </a>
+          <form class="" action="/borrarPelicula" method="post">
+            {{csrf_field()}}
+            <input type="hidden" name="id" value="{{$peliculas->id}}">
+            <input type="submit" name="" value="Borrar Pelicula">
+          </form>
         </div>
         <span class="text-muted">Rating: {{$peliculas["rating"]}}</span>
       </div>
     </div>
+
     @empty
     <h6> No hay peliculas <h6>
     @endforelse
   </div>
   {{$arrayPeliculas->links()}}
+
+
 @endsection
