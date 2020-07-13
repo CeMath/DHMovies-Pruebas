@@ -6,28 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-  
-    <!-- Bootstrap Scripts -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js    "><\/script>')</script>
-    <script src="public/js/bootstrap.bundle.js"></script>
-    <script src="public/js/offcanvas.js"></script>
-    <!-- CSS -->
-    <link rel="stylesheet" href="public/css/app.css">
-    <link rel="stylesheet" href="public/css/product.css"> 
-    <link rel="stylesheet" href="public/css/estilos.css">  
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.5/examples/offcanvas/">
-    <link href="public/css/bootstrap.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous"> -->
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <!-- <link href="css/app.css" rel="stylesheet"> -->
+    <link href="/css/estilos.css" rel="stylesheet">
+    
 
     <!-- NavBar Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap"/>
     <!-- NavBar CSS -->
     <link rel="stylesheet" href="/css/style.css" />
-    <!-- NavBar Script -->
-    <script defer src="/js/theme.js"></script>
+    
 
     <style>
       .bd-placeholder-img {
@@ -280,8 +269,81 @@
         </ul>
     </nav>
 
+    <main class = "container"> 
+    <div class="navbar navbar-expand-lg navbar-light bg-light">
 
-    <main class = "container"> @yield("principal") </main>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+     
+      <li class="nav-item">
+        <h1 class="">DHMOVIES</h1>
+      </li>
+      <li>
+        <svg width="3em" height="3em" viewBox="0 0 16 16" class="svg-inline--fa fa-angle-double-right fa-w-14 fa-5x"  aria-hidden="true" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+            <path fill-rule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+        </svg>
+      </li>
+
+      <li class="nav-item">
+        <p class="nav-link">
+        {{ Auth::user()->name }}
+    </p>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+    </div> 
+        <!-- <div class="d-flex bd-highlight mb-0 row">
+            <div class="d-flex flex-row mr-auto p-2 bd-highlight col-12 col-md-4">
+                    <h1 class="">DHMOVIES</h1>  
+                <svg width="3em" height="3em" viewBox="0 0 16 16" class="svg-inline--fa fa-angle-double-right fa-w-14 fa-5x"  aria-hidden="true" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                    <path fill-rule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+                </svg>
+            </div>
+
+            <div> 
+                <div class="d-flex flex-row"> -->
+                <!-- Buscador -->
+                @yield("buscador")
+                <!-- </div> -->
+
+                <!-- <div>
+                @guest
+                    <a class="nav-link" href="{{ route('login') }}">{{ __('Loguearse') }}</a>
+                    
+                    @if (Route::has('register'))
+                        <a class="nav-link" href="{{ route('register') }}">{{ __('Registrarse') }}</a>
+                    @endif
+                @else
+                    <h5> Bienvenido: {{ Auth::user()->name }} </h5>
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                @endguest
+                </div> -->
+               
+            <!-- </div>
+        </div> -->
+        
+
+ 
+        @yield("principal") 
+
+    </main>
     
       
     <footer> 
@@ -289,5 +351,17 @@
         <p>Footer</p>
 
     </footer>
+
+    <!-- Bootstrap Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js    "><\/script>')</script>
+    <script src="public/js/bootstrap.bundle.js"></script>
+    <script src="public/js/offcanvas.js"></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
+
+    <!-- NavBar Script -->
+    <script defer src="/js/theme.js"></script>
 </body>
 </html>

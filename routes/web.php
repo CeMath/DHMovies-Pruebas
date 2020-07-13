@@ -11,10 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Para que nos redireccione despues de desloguearnos de la pagina
+Route::get('/', 'PeliculasController@peliculas');
 
+Route::get('/', 'PeliculasController@peliculas');
 // Pagina inicio donde aparecen 5 peliculas randoms y las ultimas 5 peliculas agregadas
 Route::get('/inicio', 'PeliculasController@peliculas');
 
@@ -55,5 +55,6 @@ Route::post('/Actualizar', "PeliculasController@Actualizar");
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Modificamos el route para que cuando nos logueamos nos redireccione correctamente
+Route::get('/home', 'PeliculasController@peliculas');
 

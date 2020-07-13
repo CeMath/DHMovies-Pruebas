@@ -259,7 +259,6 @@ class PeliculasController extends Controller
 
             $peliculasAPI[$i]["actores"] = $aux;  
             $i++; 
-            
         }
         return json_encode($peliculasAPI);
 }

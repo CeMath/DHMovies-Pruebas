@@ -4,23 +4,23 @@
     Listado de todas las peliculas
 @endsection
 
+@section("buscador")
+<form class="my-2" action="/buscador" method="get">
+  <div class="col-12 col-md-12">
+    <input name="tituloPelicula" required="required" class="form-control mr-sm-2" type="text" placeholder="Ingresar titulo..." aria-label="Search">
+  </div>
+
+  <div class="col-12 col-md-12">
+    <button class="btn btn-outline-success my-2" type="submit">buscar</button>
+  </div>
+</form>
+
+
+@endsection
+
 @section("principal")
 
-<div class="d-flex flex-row-reverse p-3 my-3 -50 bg-purple rounded shadow-sm">
 
-  <svg width="3em" height="3em" viewBox="0 0 16 16" class="svg-inline--fa fa-angle-double-right fa-w-14 fa-5x"  aria-hidden="true" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <path fill-rule="evenodd" d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
-  <path fill-rule="evenodd" d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
-</svg>
-<h1 class="">DHMOVIES</h1>
-
-<!-- Buscador -->
-  <form class="form-inline my-2 my-lg-0" action="/buscador" method="get">
-    <input name="tituloPelicula" required="required" class="form-control mr-sm-2" type="text" placeholder="Ingresar titulo..." aria-label="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">buscar</button>
-  </form>
-
-</div>
 
 
 <!-- <form action="/buscador" method="get">
